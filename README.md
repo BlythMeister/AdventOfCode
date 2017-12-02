@@ -1,17 +1,17 @@
-﻿# AdventOfCode2017
-My Solutions to http://adventofcode.com/2017
+﻿# Advent Of Code
+My Solutions to http://adventofcode.com
 
 # Completion Stats
 
-A tick for each part completed per day.;
+A tick for each part completed per day.
 
 | Day | 2015 | 2016 | 2017 |
 |-----|------|------|------|
-| 1   |      |      | ✔ ✔ |
-| 2   |      |      | ✔ ✔ |
-| 3   |      |      |      |
-| 4   |      |      |      |
-| 5   |      |      |      |
+| 1   |      | ✔ ✔ | ✔ ✔ |
+| 2   |      | ✔ ✔ | ✔ ✔ |
+| 3   |      | ✔ ✔ |      |
+| 4   |      | ✔ ✔ |      |
+| 5   |      | ✔ ✔ |      |
 | 6   |      |      |      |
 | 7   |      |      |      |
 | 8   |      |      |      |
