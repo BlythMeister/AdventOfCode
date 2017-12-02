@@ -3,10 +3,12 @@ My Solutions to http://adventofcode.com/2017
 
 # Completion Stats
 
+A tick for each part completed per day.;
+
 | Day | 2015 | 2016 | 2017 |
 |-----|------|------|------|
 | 1   |      |      | ✔ ✔ |
-| 2   |      |      |      |
+| 2   |      |      | ✔ ✔ |
 | 3   |      |      |      |
 | 4   |      |      |      |
 | 5   |      |      |      |
