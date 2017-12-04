@@ -55,9 +55,6 @@
     <Content Include="Data\Day2.dat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Data\Day5.dat">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Data\Day4.dat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
