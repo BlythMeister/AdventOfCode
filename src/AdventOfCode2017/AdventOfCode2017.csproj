@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Day1.cs" />
     <Compile Include="Day2.cs" />
+    <Compile Include="Day5.cs" />
     <Compile Include="Day4.cs" />
     <Compile Include="Day3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -55,6 +56,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Data\Day4.dat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Day5.dat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="paket.references" />
