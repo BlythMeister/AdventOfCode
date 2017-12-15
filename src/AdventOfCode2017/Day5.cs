@@ -34,8 +34,8 @@ namespace AdventOfCode2017
             Console.WriteLine(result);
         }
 
-        [TestCase("0\n3\n0\n1\n-3", 10, Ignore = "Long Running")]
-        [TestCase(null, 28675390, Ignore = "Long Running")]
+        [TestCase("0\n3\n0\n1\n-3", 10, Explicit = true)]
+        [TestCase(null, 28675390, Explicit = true)]
         public void Part2(string input, int? expected)
         {
             input = input ?? realData;

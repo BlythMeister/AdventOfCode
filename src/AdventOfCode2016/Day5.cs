@@ -11,8 +11,8 @@ namespace AdventOfCode2016
     {
         private readonly string realData = "ojvtpuvg";
 
-        [TestCase("abc", "18f47a30", Ignore = "Long Running")]
-        [TestCase(null, "4543c154", Ignore = "Long Running")]
+        [TestCase("abc", "18f47a30", Explicit = true)]
+        [TestCase(null, "4543c154", Explicit = true)]
         public void Part1(string input, string expected)
         {
             input = input ?? realData;
@@ -40,8 +40,8 @@ namespace AdventOfCode2016
             Console.WriteLine(result);
         }
 
-        [TestCase("abc", "05ace8e3", Ignore = "Long Running")]
-        [TestCase(null, "1050cbbd", Ignore = "Long Running")]
+        [TestCase("abc", "05ace8e3", Explicit = true)]
+        [TestCase(null, "1050cbbd", Explicit = true)]
         public void Part2(string input, int? expected)
         {
             input = input ?? realData;

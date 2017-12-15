@@ -65,7 +65,7 @@ namespace AdventOfCode2016
         }
 
         [TestCase("very encrypted name", "qzmt-zixmtkozy-ivhz-343[]", "343")]
-        [TestCase("northpole object storage", null, "993", Ignore = "Long Running")]
+        [TestCase("northpole object storage", null, "993", Explicit = true)]
         public void Part2(string searchRoom, string input, string expected)
         {
             input = input ?? realData;
