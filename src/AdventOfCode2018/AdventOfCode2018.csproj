@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9BADB5ED-6203-4635-8959-67303ABA22C5}</ProjectGuid>
+    <ProjectGuid>{C1BF9420-B742-4364-B53E-35EBE66F524E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AdventOfCode2016</RootNamespace>
-    <AssemblyName>AdventOfCode2016</AssemblyName>
+    <RootNamespace>AdventOfCode2018</RootNamespace>
+    <AssemblyName>AdventOfCode2018</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -42,8 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Day5.cs" />
-    <Compile Include="Day4.cs" />
     <Compile Include="Day3.cs" />
     <Compile Include="Day2.cs" />
     <Compile Include="Day1.cs" />
@@ -54,9 +52,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Data\Day2.dat">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\Day4.dat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Data\Day3.dat">
