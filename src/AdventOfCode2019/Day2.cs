@@ -12,7 +12,7 @@ namespace AdventOfCode2019
 
         [TestCase("1,0,0,0,99", 0, 0, 0, 2)]
         [TestCase("2,3,0,3,99", 3, 3, 0, 6)]
-        [TestCase(null, 0, 12, 2, 6635)]
+        [TestCase(null, 0, 12, 2, 4138687)]
         public void Part1(string input, int expectedPosition, int noun, int verb, int? expected)
         {
             var lines = input != null ? input : realData[0];
@@ -27,7 +27,7 @@ namespace AdventOfCode2019
 
         [TestCase("1,0,0,0,99", 0, 0, 0, 2, 0)]
         [TestCase("2,3,0,3,99", 3, 3, 0, 6, 300)]
-        [TestCase(null, 0, null, null, 19690720, 413887)]
+        [TestCase(null, 0, null, null, 19690720, 6635)]
         public void Part2(string input, int expectedPosition, int? noun, int? verb, int expected, int? expectedNounValue)
         {
             var lines = input != null ? input : realData[0];

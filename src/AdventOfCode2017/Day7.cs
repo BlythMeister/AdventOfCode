@@ -17,26 +17,14 @@ namespace AdventOfCode2017
         {
             input = input ?? realData;
             var result = "";
-            var itemList = new Dictionary<string, string>();
 
-            foreach (var line in input.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None))
-            {
-                if (line.Contains("->"))
-                {
-                    var item = line.Substring(0, line.IndexOf(" "));
-                    var children = line.Substring(line.IndexOf("->") + 3).Split(',').Select(x => x.Trim());
-                    foreach (var child in children)
-                    {
-                        itemList.Add(child, item);
-                    }
-                }
-            }
+            var (tree, _) = GetTreeAndWeights(input);
 
-            foreach (var item in itemList)
+            foreach (var treeItem in tree)
             {
-                if (!itemList.ContainsKey(item.Value))
+                if (!tree.Any(x => x.Value.Contains(treeItem.Key)))
                 {
-                    result = item.Value;
+                    result = treeItem.Key;
                     break;
                 }
             }
@@ -46,6 +34,107 @@ namespace AdventOfCode2017
                 Assert.AreEqual(expected, result);
             }
             Console.WriteLine(result);
+        }
+
+        [TestCase("pbga (66)\nxhth (57)\nebii (61)\nhavc (66)\nktlj (57)\nfwft (72) -> ktlj, cntj, xhth\nqoyq (66)\npadx (45) -> pbga, havc, qoyq\ntknk (41) -> ugml, padx, fwft\njptl (61)\nugml (68) -> gyxo, ebii, jptl\ngyxo (61)\ncntj (57)", 60)]
+        [TestCase(null, 2310)]
+        public void Part2(string input, int expected)
+        {
+            input = input ?? realData;
+            var result = 0;
+
+            var (tree, weights) = GetTreeAndWeights(input);
+
+            var treebase = "";
+
+            foreach (var treeItem in tree)
+            {
+                if (!tree.Any(x => x.Value.Contains(treeItem.Key)))
+                {
+                    treebase = treeItem.Key;
+                    break;
+                }
+            }
+
+            var invalidLeaves = new Dictionary<string, int>();
+
+            int SumAllLeaves(string leaf)
+            {
+                var childSums = new Dictionary<string, int>();
+                if (tree.ContainsKey(leaf))
+                {
+                    foreach (var subLeaf in tree[leaf])
+                    {
+                        childSums.Add(subLeaf, SumAllLeaves(subLeaf));
+                    }
+
+                    var childGroups = childSums.GroupBy(x => x.Value);
+                    if (childGroups.Count() > 1)
+                    {
+                        var invalidLeaf = "";
+                        var invaildtotal = 0;
+                        var validtotal = 0;
+                        foreach (var childGroup in childGroups)
+                        {
+                            if (childGroup.Count() == 1)
+                            {
+                                invalidLeaf = childGroup.First().Key;
+                                invaildtotal = childGroup.First().Value;
+                            }
+                            else
+                            {
+                                validtotal = childGroup.First().Value;
+                            }
+                        }
+
+                        var invalidLeafValue = weights[invalidLeaf];
+                        var difference = invaildtotal - validtotal;
+                        invalidLeaves.Add(invalidLeaf, invalidLeafValue - difference);
+                    }
+                }
+
+                return weights[leaf] + childSums.Sum(x => x.Value);
+            }
+
+            SumAllLeaves(treebase);
+
+            result = invalidLeaves.FirstOrDefault().Value;
+
+            if (expected != null)
+            {
+                Assert.AreEqual(expected, result);
+            }
+
+            Console.WriteLine(result);
+        }
+
+        private (Dictionary<string, List<string>> tree, Dictionary<string, int> weights) GetTreeAndWeights(string input)
+        {
+            var tree = new Dictionary<string, List<string>>();
+            var weights = new Dictionary<string, int>();
+
+            foreach (var line in input.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None))
+            {
+                var item = line.Substring(0, line.IndexOf(" "));
+
+                if (line.Contains("->"))
+                {
+                    var children = line.Substring(line.IndexOf("->") + 3).Split(',').Select(x => x.Trim());
+
+                    tree.Add(item, children.ToList());
+                }
+
+                if (line.Contains("(") && line.Contains(")"))
+                {
+                    var openChar = line.IndexOf("(") + 1;
+                    var closeChar = line.IndexOf(")");
+                    var length = closeChar - openChar;
+                    var weight = int.Parse(line.Substring(openChar, length));
+                    weights.Add(item, weight);
+                }
+            }
+
+            return (tree, weights);
         }
     }
 }
