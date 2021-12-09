@@ -26,8 +26,8 @@ namespace AdventOfCode2020
         }
 
         [TestCase("..##.......\n#...#...#..\n.#....#..#.\n..#.#...#.#\n.#...##..#.\n..#.##.....\n.#.#.#....#\n.#........#\n#.##...#...\n#...##....#\n.#..#...#.#", 336)]
-        [TestCase(null, 173)]
-        public void Part2(string input, int? expected)
+        [TestCase(null, 4385176320)]
+        public void Part2(string input, long? expected)
         {
             var lines = input != null ? input.Split('\n') : realData;
             var result = Execute(lines, new List<(int x, int y)> { (1,1),(3, 1),(5,1),(7,1),(1,2) });

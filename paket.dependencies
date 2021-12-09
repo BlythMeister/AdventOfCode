@@ -1,7 +1,0 @@
-framework: auto-detect
-source https://api.nuget.org/v3/index.json
-
-nuget Microsoft.NET.Test.Sdk
-nuget NUnit
-nuget NUnit3TestAdapter
-nuget Moq

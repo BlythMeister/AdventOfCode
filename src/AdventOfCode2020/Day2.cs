@@ -29,7 +29,7 @@ namespace AdventOfCode2020
         [TestCase("1-3 a: abcde", 1)]
         [TestCase("1-3 b: cdefg", 0)]
         [TestCase("2-9 c: ccccccccc", 0)]
-        [TestCase(null, 580)]
+        [TestCase(null, 611)]
         public void Part2(string input, int? expected)
         {
             var lines = input != null ? new[] { input } : realData;

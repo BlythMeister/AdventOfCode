@@ -42,7 +42,7 @@ namespace AdventOfCode2016
 
         [TestCase("abc", "05ace8e3", Explicit = true)]
         [TestCase(null, "1050cbbd", Explicit = true)]
-        public void Part2(string input, int? expected)
+        public void Part2(string input, string expected)
         {
             input = input ?? realData;
             var password = new string[8];
@@ -76,7 +76,7 @@ namespace AdventOfCode2016
 
             if (expected != null)
             {
-                Assert.AreEqual(expected.Value, result);
+                Assert.AreEqual(expected, result);
             }
             Console.WriteLine(result);
         }
