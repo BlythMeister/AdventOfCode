@@ -23,7 +23,7 @@ namespace AdventOfCode2021
         }
 
         [TestCase("Day5-Sample", 12)]
-        [TestCase("Day5", 31424)]
+        [TestCase("Day5", 20012)]
         public void Part2(string inputFile, int? expected)
         {
             var lines = File.ReadAllLines(Path.Combine(TestContext.CurrentContext.TestDirectory, "Data", $"{inputFile}.dat"));
@@ -92,7 +92,30 @@ namespace AdventOfCode2021
                 }
                 else if (includeDiagonal)
                 {
-                    //TODO this is incomplete for part 2
+                    var length = Math.Abs(x1 - x2);
+                    var x = x1;
+                    var y = y1;
+                    while (length >= 0)
+                    {
+                        map[x, y]++;
+                        if (x2 > x)
+                        {
+                            x++;
+                        }
+                        else
+                        {
+                            x--;
+                        }
+                        if (y2 > y)
+                        {
+                            y++;
+                        }
+                        else
+                        {
+                            y--;
+                        }
+                        length--;
+                    }
                 }
 
                 if (paths.Count < 20)
@@ -103,7 +126,7 @@ namespace AdventOfCode2021
                         var line = "";
                         for (var y = 0; y <= maxY; y++)
                         {
-                            line = $"{line}{map[y, x]}";
+                            line = map[y, x] == 0 ? $"{line}." : $"{line}{map[y, x]}";
                         }
                         Console.WriteLine(line);
                     }
