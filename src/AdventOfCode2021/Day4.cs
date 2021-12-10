@@ -11,7 +11,7 @@ namespace AdventOfCode2021
     {
         private readonly string[] realData = File.ReadAllLines(Path.Combine(TestContext.CurrentContext.TestDirectory, "Data", "Day4.dat"));
 
-        [TestCase("Day4-Sample1.dat", 4512)]
+        [TestCase("Day4-Sample.dat", 4512)]
         [TestCase(null, 31424)]
         public void Part1(string input, int? expected)
         {
@@ -25,7 +25,7 @@ namespace AdventOfCode2021
             Console.WriteLine(result);
         }
 
-        [TestCase("Day4-Sample1.dat", 1924)]
+        [TestCase("Day4-Sample.dat", 1924)]
         [TestCase(null, 23042)]
         public void Part2(string input, int? expected)
         {
