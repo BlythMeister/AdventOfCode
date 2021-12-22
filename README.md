@@ -1,6 +1,8 @@
 ﻿# Advent Of Code
 My Solutions to http://adventofcode.com
 
+![Tests Passing](https://github.com/BlythMeister/AdventOfCode/actions/workflows/dotnet.yaml/badge.svg)
+
 # Completion Stats
 
 A tick for each part completed per day.
