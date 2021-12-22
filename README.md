@@ -1,7 +1,7 @@
 ﻿# Advent Of Code
 My Solutions to http://adventofcode.com
 
-[![.NET](https://github.com/BlythMeister/AdventOfCode/actions/workflows/dotnet.yml/badge.svg)](https://github.com/BlythMeister/AdventOfCode/actions/workflows/dotnet.yml)
+[![.NET](https://github.com/BlythMeister/AdventOfCode/actions/workflows/dotnet.yml/badge.svg?branch=master&event=push)](https://github.com/BlythMeister/AdventOfCode/actions/workflows/dotnet.yml)
 
 # Completion Stats
 
