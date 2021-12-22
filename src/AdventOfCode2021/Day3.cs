@@ -38,7 +38,7 @@ namespace AdventOfCode2021
             Console.WriteLine(result);
         }
 
-        private int ExecutePart1(string[] inputs)
+        private static int ExecutePart1(string[] inputs)
         {
             var gammaRate = "";
             var epsilonRate = "";
@@ -65,7 +65,7 @@ namespace AdventOfCode2021
             return gammaRateNumber * epsilonRateNumber;
         }
 
-        private int ExecutePart2(string[] inputs)
+        private static int ExecutePart2(string[] inputs)
         {
             var oxygen = "";
             var c02 = "";

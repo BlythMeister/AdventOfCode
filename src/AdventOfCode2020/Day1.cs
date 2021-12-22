@@ -37,7 +37,7 @@ namespace AdventOfCode2020
             Console.WriteLine(result);
         }
 
-        private int Execute(string[] inputs, bool compare3)
+        private static int Execute(string[] inputs, bool compare3)
         {
             for (var i = 0; i < inputs.Length; i++)
             {

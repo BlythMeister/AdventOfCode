@@ -15,7 +15,7 @@ namespace AdventOfCode2015
         [TestCase(null, 282749, Explicit = true)]
         public void Part1(string input, int? expected)
         {
-            input = input ?? realData;
+            input ??= realData;
             var result = GetHashWithLeadingZeros(input, "00000");
 
             if (expected != null)
@@ -28,7 +28,7 @@ namespace AdventOfCode2015
         [TestCase(null, 9962624, Explicit = true)]
         public void Part2(string input, int? expected)
         {
-            input = input ?? realData;
+            input ??= realData;
             var result = GetHashWithLeadingZeros(input, "000000");
 
             if (expected != null)
@@ -42,7 +42,7 @@ namespace AdventOfCode2015
         {
             var result = 0;
 
-            var md5Provider = new MD5CryptoServiceProvider();
+            var md5Provider = MD5.Create();
 
             while (true)
             {
@@ -62,7 +62,5 @@ namespace AdventOfCode2015
             }
             return result;
         }
-
-
     }
 }

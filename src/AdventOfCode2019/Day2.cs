@@ -60,7 +60,7 @@ namespace AdventOfCode2019
             Console.WriteLine(result);
         }
 
-        private int Execute(int[] inputs, int expectedPosition, int noun, int verb)
+        private static int Execute(int[] inputs, int expectedPosition, int noun, int verb)
         {
             var pos = 0;
             inputs[1] = noun;

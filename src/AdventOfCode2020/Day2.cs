@@ -42,7 +42,7 @@ namespace AdventOfCode2020
             Console.WriteLine(result);
         }
 
-        private int Execute(string[] inputs)
+        private static int Execute(string[] inputs)
         {
             var validPasswords = 0;
 
@@ -66,7 +66,7 @@ namespace AdventOfCode2020
             return validPasswords;
         }
 
-        private int Execute2(string[] inputs)
+        private static int Execute2(string[] inputs)
         {
             var validPasswords = 0;
 

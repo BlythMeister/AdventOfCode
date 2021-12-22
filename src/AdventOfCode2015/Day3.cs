@@ -16,7 +16,7 @@ namespace AdventOfCode2015
         [TestCase(null, 2592)]
         public void Part1(string input, int? expected)
         {
-            input = input ?? realData;
+            input ??= realData;
             var xPosition = 0;
             var yPosition = 0;
 
@@ -29,12 +29,15 @@ namespace AdventOfCode2015
                     case '>':
                         yPosition++;
                         break;
+
                     case '<':
                         yPosition--;
                         break;
+
                     case '^':
                         xPosition++;
                         break;
+
                     case 'v':
                         xPosition--;
                         break;
@@ -58,7 +61,7 @@ namespace AdventOfCode2015
         [TestCase(null, 2360)]
         public void Part2(string input, int? expected)
         {
-            input = input ?? realData;
+            input ??= realData;
             var xPositionSanta = 0;
             var yPositionSanta = 0;
 
@@ -83,6 +86,7 @@ namespace AdventOfCode2015
                             yPositionRoboSanta++;
                         }
                         break;
+
                     case '<':
                         if (santaMove)
                         {
@@ -93,6 +97,7 @@ namespace AdventOfCode2015
                             yPositionRoboSanta--;
                         }
                         break;
+
                     case '^':
                         if (santaMove)
                         {
@@ -103,6 +108,7 @@ namespace AdventOfCode2015
                             xPositionRoboSanta++;
                         }
                         break;
+
                     case 'v':
                         if (santaMove)
                         {
@@ -125,7 +131,6 @@ namespace AdventOfCode2015
                 }
 
                 santaMove = !santaMove;
-
             }
 
             var result = visited.Count;

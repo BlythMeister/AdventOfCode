@@ -16,7 +16,7 @@ namespace AdventOfCode2017
         [TestCase(null, 475)]
         public void Part1(int? input, int? expected)
         {
-            input = input ?? realData;
+            input ??= realData;
 
             var n = 0;
 
@@ -29,7 +29,7 @@ namespace AdventOfCode2017
                 }
             }
 
-            n = n + 3;
+            n += 3;
 
             var matrix = new int[n, n];
             var direction = "right";
@@ -99,7 +99,7 @@ namespace AdventOfCode2017
         [TestCase(null, 279138)]
         public void Part2(int? input, int? expected)
         {
-            input = input ?? realData;
+            input ??= realData;
 
             var n = 0;
 
@@ -112,7 +112,7 @@ namespace AdventOfCode2017
                 }
             }
 
-            n = n + 3;
+            n += 3;
 
             var matrix = new int[n, n];
             var direction = "right";

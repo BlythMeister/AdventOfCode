@@ -41,7 +41,7 @@ namespace AdventOfCode2021
             Console.WriteLine(result);
         }
 
-        private long Execute(string[] inputs, bool visitOneSmallCaveTwice)
+        private static long Execute(string[] inputs, bool visitOneSmallCaveTwice)
         {
             var paths = new List<List<string>>();
 
@@ -95,7 +95,7 @@ namespace AdventOfCode2021
             return paths.Count;
         }
 
-        private IEnumerable<string> GetConnections(string[] connections, string source)
+        private static IEnumerable<string> GetConnections(string[] connections, string source)
         {
             foreach (var input in connections)
             {

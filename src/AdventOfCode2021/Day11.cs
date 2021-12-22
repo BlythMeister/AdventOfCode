@@ -37,7 +37,7 @@ namespace AdventOfCode2021
             Console.WriteLine(result);
         }
 
-        private long Execute(string[] inputs, bool allFlash)
+        private static long Execute(string[] inputs, bool allFlash)
         {
             var octopus = new int[10, 10];
             for (var i = 0; i < inputs.Length; i++)

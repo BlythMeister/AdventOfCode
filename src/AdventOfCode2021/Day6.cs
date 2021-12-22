@@ -36,7 +36,7 @@ namespace AdventOfCode2021
             Console.WriteLine(result);
         }
 
-        private long Execute(string[] inputs, int days)
+        private static long Execute(string[] inputs, int days)
         {
             var initial = inputs.Select(int.Parse).ToArray();
             var newbirths = new long[days];

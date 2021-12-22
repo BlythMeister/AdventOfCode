@@ -17,7 +17,7 @@ namespace AdventOfCode2015
         [TestCase(null, 258)]
         public void Part1(string input, int? expected)
         {
-            input = input ?? realData;
+            input ??= realData;
             var result = 0;
 
             foreach (var line in input.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None))
@@ -60,7 +60,7 @@ namespace AdventOfCode2015
         [TestCase(null, 53)]
         public void Part2(string input, int? expected)
         {
-            input = input ?? realData;
+            input ??= realData;
             var result = 0;
 
             foreach (var line in input.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None))
@@ -73,15 +73,14 @@ namespace AdventOfCode2015
                 var foundDouble = false;
                 for (int i = 0; i < line.Length - 1; i++)
                 {
-                    var preStr = line.Substring(0, i);
+                    var preStr = line[..i];
                     var str = line.Substring(i, 2);
-                    var postStr = line.Substring(i + 2);
+                    var postStr = line[(i + 2)..];
 
                     if (preStr.Contains(str) || postStr.Contains(str))
                     {
                         foundDouble = true;
                     }
-
                 }
                 if (!foundDouble) continue;
 
@@ -110,4 +109,3 @@ namespace AdventOfCode2015
         }
     }
 }
-

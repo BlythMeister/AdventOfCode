@@ -17,7 +17,7 @@ namespace AdventOfCode2017
         [TestCase(null, 325)]
         public void Part1(string input, int? expected)
         {
-            input = input ?? realData;
+            input ??= realData;
 
             var result = 0;
             foreach (var line in input.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None))
@@ -46,7 +46,7 @@ namespace AdventOfCode2017
         [TestCase(null, 119)]
         public void Part2(string input, int? expected)
         {
-            input = input ?? realData;
+            input ??= realData;
 
             var result = 0;
             foreach (var line in input.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None))
@@ -63,7 +63,7 @@ namespace AdventOfCode2017
 
                 var distinctParts = partsOrdered.Distinct().ToList();
 
-                if (partsOrdered.Count() == distinctParts.Count())
+                if (partsOrdered.Count == distinctParts.Count)
                 {
                     result++;
                 }

@@ -37,7 +37,7 @@ namespace AdventOfCode2021
             Console.WriteLine(result);
         }
 
-        private long Execute(string[] inputs, bool scoreAutoComplete)
+        private static long Execute(string[] inputs, bool scoreAutoComplete)
         {
             var scores = new List<long>();
 
@@ -53,7 +53,7 @@ namespace AdventOfCode2021
                     }
                     else
                     {
-                        var last = chars[chars.Count - 1];
+                        var last = chars[^1];
                         chars.RemoveAt(chars.Count - 1);
                         var expected = last switch
                         {

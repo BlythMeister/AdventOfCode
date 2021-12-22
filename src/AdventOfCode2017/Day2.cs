@@ -14,7 +14,7 @@ namespace AdventOfCode2017
         [TestCase(null, 54426)]
         public void Part1(string input, int? expected)
         {
-            input = input ?? realData;
+            input ??= realData;
 
             var result = 0;
             foreach (var line in input.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None))
@@ -24,7 +24,7 @@ namespace AdventOfCode2017
 
                 var max = numbers.Max();
                 var min = numbers.Min();
-                result = result + (max - min);
+                result += (max - min);
             }
 
             if (expected != null)
@@ -39,7 +39,7 @@ namespace AdventOfCode2017
         [TestCase(null, 333)]
         public void Part2(string input, int? expected)
         {
-            input = input ?? realData;
+            input ??= realData;
 
             var result = 0;
             foreach (var line in input.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None))

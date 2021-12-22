@@ -17,7 +17,7 @@ namespace AdventOfCode2016
         [TestCase(null, 1050)]
         public void Part1(string input, int? expected)
         {
-            input = input ?? realData;
+            input ??= realData;
 
             var tests = input.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
             var result = 0;
@@ -44,13 +44,13 @@ namespace AdventOfCode2016
         [TestCase(null, 1921)]
         public void Part2(string input, int? expected)
         {
-            input = input ?? realData;
+            input ??= realData;
             var result = 0;
 
             var lines = input.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
             var values = lines.Select(x => x.Split(',').Where(t => !string.IsNullOrWhiteSpace(t)).Select(t => int.Parse(t.Trim())).ToArray()).ToArray();
 
-            for (int i = 0; i < values.Length; i = i + 3)
+            for (int i = 0; i < values.Length; i += 3)
             {
                 var line1 = values[i];
                 var line2 = values[i + 1];

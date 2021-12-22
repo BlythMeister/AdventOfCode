@@ -14,7 +14,7 @@ namespace AdventOfCode2017
         [TestCase(null, 396086)]
         public void Part1(string input, int? expected)
         {
-            input = input ?? realData;
+            input ??= realData;
             var jumps = input.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None).Select(x => int.Parse(x)).ToList();
             var position = 0;
             var result = 0;
@@ -23,7 +23,7 @@ namespace AdventOfCode2017
             {
                 var value = jumps[position];
                 jumps[position] = value + 1;
-                position = position + value;
+                position += value;
                 result++;
             }
 
@@ -38,7 +38,7 @@ namespace AdventOfCode2017
         [TestCase(null, 28675390, Explicit = true)]
         public void Part2(string input, int? expected)
         {
-            input = input ?? realData;
+            input ??= realData;
             var jumps = input.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None).Select(x => int.Parse(x)).ToList();
             var position = 0;
             var result = 0;
@@ -54,7 +54,7 @@ namespace AdventOfCode2017
                 {
                     jumps[position] = value + 1;
                 }
-                position = position + value;
+                position += value;
                 result++;
             }
 

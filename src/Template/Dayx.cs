@@ -1,10 +1,8 @@
 using NUnit.Framework;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 
-namespace AdventOfCode2021
+namespace AdventOfCodex
 {
     [TestFixture, Parallelizable(ParallelScope.All)]
     public class Dayx
@@ -37,7 +35,7 @@ namespace AdventOfCode2021
         ////    Console.WriteLine(result);
         ////}
 
-        private long Execute(string[] inputs)
+        private static long Execute(string[] inputs)
         {
             return 0;
         }

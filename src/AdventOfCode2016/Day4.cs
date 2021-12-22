@@ -19,16 +19,16 @@ namespace AdventOfCode2016
         [TestCase(null, 158835)]
         public void Part1(string input, int? expected)
         {
-            input = input ?? realData;
+            input ??= realData;
             var result = 0;
 
             var tests = input.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None).Where(i => !string.IsNullOrWhiteSpace(i)).Select(i => i.Trim());
 
             foreach (var test in tests)
             {
-                var name = test.Substring(0, test.LastIndexOf("-"));
-                var sectorAndChecksum = test.Replace(name, "").Substring(1);
-                var sector = sectorAndChecksum.Substring(0, sectorAndChecksum.IndexOf("["));
+                var name = test[..test.LastIndexOf("-")];
+                var sectorAndChecksum = test.Replace(name, "")[1..];
+                var sector = sectorAndChecksum[..sectorAndChecksum.IndexOf("[")];
                 var checksum = sectorAndChecksum.Replace(sector, "").Replace("[", "").Replace("]", "");
 
                 var letterCounts = new Dictionary<string, int>();
@@ -53,7 +53,7 @@ namespace AdventOfCode2016
 
                 if (checksum == calculatedChecksum)
                 {
-                    result = result + int.Parse(sector);
+                    result += int.Parse(sector);
                 }
             }
 
@@ -68,16 +68,16 @@ namespace AdventOfCode2016
         [TestCase("northpole object storage", null, "993", Explicit = true)]
         public void Part2(string searchRoom, string input, string expected)
         {
-            input = input ?? realData;
+            input ??= realData;
             var result = "";
 
             var tests = input.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None).Where(i => !string.IsNullOrWhiteSpace(i)).Select(i => i.Trim());
             var alphabet = new string[] { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" };
             foreach (var test in tests)
             {
-                var name = test.Substring(0, test.LastIndexOf("-"));
-                var sectorAndChecksum = test.Replace(name, "").Substring(1);
-                var sector = sectorAndChecksum.Substring(0, sectorAndChecksum.IndexOf("["));
+                var name = test[..test.LastIndexOf("-")];
+                var sectorAndChecksum = test.Replace(name, "")[1..];
+                var sector = sectorAndChecksum[..sectorAndChecksum.IndexOf("[")];
 
                 var decryptedName = string.Empty;
 
@@ -86,7 +86,7 @@ namespace AdventOfCode2016
                     var letter = character.ToString();
                     if (letter == " ")
                     {
-                        decryptedName = decryptedName + letter;
+                        decryptedName += letter;
                     }
                     else
                     {
@@ -102,14 +102,14 @@ namespace AdventOfCode2016
 
                         for (int i = 0; i < int.Parse(sector); i++)
                         {
-                            letterPos = letterPos + 1;
+                            letterPos += 1;
                             if (letterPos >= alphabet.Length)
                             {
                                 letterPos = 0;
                             }
                         }
 
-                        decryptedName = decryptedName + alphabet[letterPos];
+                        decryptedName += alphabet[letterPos];
                     }
                 }
 

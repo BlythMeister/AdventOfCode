@@ -37,7 +37,7 @@ namespace AdventOfCode2021
             Console.WriteLine(result);
         }
 
-        private int Execute(string[] inputs, bool includeAim)
+        private static int Execute(string[] inputs, bool includeAim)
         {
             var position = 0;
             var depth = 0;
@@ -47,7 +47,7 @@ namespace AdventOfCode2021
             {
                 if (input.StartsWith("forward"))
                 {
-                    var value = int.Parse(input.Substring(7).Trim());
+                    var value = int.Parse(input[7..].Trim());
                     position += value;
                     if (includeAim)
                     {
@@ -58,22 +58,22 @@ namespace AdventOfCode2021
                 {
                     if (includeAim)
                     {
-                        aim -= int.Parse(input.Substring(2).Trim());
+                        aim -= int.Parse(input[2..].Trim());
                     }
                     else
                     {
-                        depth -= int.Parse(input.Substring(2).Trim());
+                        depth -= int.Parse(input[2..].Trim());
                     }
                 }
                 else if (input.StartsWith("down"))
                 {
                     if (includeAim)
                     {
-                        aim += int.Parse(input.Substring(4).Trim());
+                        aim += int.Parse(input[4..].Trim());
                     }
                     else
                     {
-                        depth += int.Parse(input.Substring(4).Trim());
+                        depth += int.Parse(input[4..].Trim());
                     }
                 }
             }

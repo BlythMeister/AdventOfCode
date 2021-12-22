@@ -14,7 +14,7 @@ namespace AdventOfCode2016
         [TestCase(null, "14894")]
         public void Part1(string input, string expected)
         {
-            input = input ?? realData;
+            input ??= realData;
 
             var position = new Tuple<int, int>(1, 1);
             var buttonMovements = input.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
@@ -64,7 +64,7 @@ namespace AdventOfCode2016
         [TestCase(null, "26B96")]
         public void Part2(string input, string expected)
         {
-            input = input ?? realData;
+            input ??= realData;
 
             var position = new Tuple<int, int>(2, 0);
             var buttonMovements = input.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);

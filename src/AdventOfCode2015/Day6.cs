@@ -17,7 +17,7 @@ namespace AdventOfCode2015
         [TestCase(null, 400410, Explicit = true)]
         public void Part1(string input, int? expected)
         {
-            input = input ?? realData;
+            input ??= realData;
             var result = 0;
 
             var grid = new Dictionary<(int, int), bool>();
@@ -45,9 +45,9 @@ namespace AdventOfCode2015
                     action = "toggle";
                 }
 
-                var remainingText = line.Substring(action.Length + 1);
-                var start = remainingText.Substring(0, remainingText.IndexOf("through")).Trim().Split(',').Select(int.Parse).ToList();
-                var end = remainingText.Substring(remainingText.IndexOf("through") + 8).Trim().Split(',').Select(int.Parse).ToList();
+                var remainingText = line[(action.Length + 1)..];
+                var start = remainingText[..remainingText.IndexOf("through")].Trim().Split(',').Select(int.Parse).ToList();
+                var end = remainingText[(remainingText.IndexOf("through") + 8)..].Trim().Split(',').Select(int.Parse).ToList();
 
                 for (int i = start[0]; i <= end[0]; i++)
                 {
@@ -58,15 +58,15 @@ namespace AdventOfCode2015
                             case "turn on":
                                 grid[(i, j)] = true;
                                 break;
+
                             case "turn off":
                                 grid[(i, j)] = false;
                                 break;
+
                             case "toggle":
                                 grid[(i, j)] = !grid[(i, j)];
                                 break;
                         }
-
-
                     }
                 }
             }
@@ -87,7 +87,7 @@ namespace AdventOfCode2015
         [TestCase(null, 15343601, Explicit = true)]
         public void Part2(string input, int? expected)
         {
-            input = input ?? realData;
+            input ??= realData;
             var result = 0;
 
             var grid = new Dictionary<(int, int), int>();
@@ -115,9 +115,9 @@ namespace AdventOfCode2015
                     action = "toggle";
                 }
 
-                var remainingText = line.Substring(action.Length + 1);
-                var start = remainingText.Substring(0, remainingText.IndexOf("through")).Trim().Split(',').Select(int.Parse).ToList();
-                var end = remainingText.Substring(remainingText.IndexOf("through") + 8).Trim().Split(',').Select(int.Parse).ToList();
+                var remainingText = line[(action.Length + 1)..];
+                var start = remainingText[..remainingText.IndexOf("through")].Trim().Split(',').Select(int.Parse).ToList();
+                var end = remainingText[(remainingText.IndexOf("through") + 8)..].Trim().Split(',').Select(int.Parse).ToList();
 
                 for (int i = start[0]; i <= end[0]; i++)
                 {
@@ -126,13 +126,15 @@ namespace AdventOfCode2015
                         switch (action)
                         {
                             case "turn on":
-                                grid[(i, j)] = grid[(i, j)] + 1;
+                                grid[(i, j)] += 1;
                                 break;
+
                             case "turn off":
-                                grid[(i, j)] = grid[(i, j)] - 1;
+                                grid[(i, j)] -= 1;
                                 break;
+
                             case "toggle":
-                                grid[(i, j)] = grid[(i, j)] + 2;
+                                grid[(i, j)] += 2;
                                 break;
                         }
 
@@ -140,7 +142,6 @@ namespace AdventOfCode2015
                         {
                             grid[(i, j)] = 0;
                         }
-
                     }
                 }
             }
@@ -155,4 +156,3 @@ namespace AdventOfCode2015
         }
     }
 }
-

@@ -15,7 +15,7 @@ namespace AdventOfCode2017
         [TestCase(null, "cqmvs")]
         public void Part1(string input, string expected)
         {
-            input = input ?? realData;
+            input ??= realData;
             var result = "";
 
             var (tree, _) = GetTreeAndWeights(input);
@@ -38,9 +38,9 @@ namespace AdventOfCode2017
 
         [TestCase("pbga (66)\nxhth (57)\nebii (61)\nhavc (66)\nktlj (57)\nfwft (72) -> ktlj, cntj, xhth\nqoyq (66)\npadx (45) -> pbga, havc, qoyq\ntknk (41) -> ugml, padx, fwft\njptl (61)\nugml (68) -> gyxo, ebii, jptl\ngyxo (61)\ncntj (57)", 60)]
         [TestCase(null, 2310)]
-        public void Part2(string input, int expected)
+        public void Part2(string input, int? expected)
         {
-            input = input ?? realData;
+            input ??= realData;
             var result = 0;
 
             var (tree, weights) = GetTreeAndWeights(input);
@@ -108,23 +108,23 @@ namespace AdventOfCode2017
             Console.WriteLine(result);
         }
 
-        private (Dictionary<string, List<string>> tree, Dictionary<string, int> weights) GetTreeAndWeights(string input)
+        private static (Dictionary<string, List<string>> tree, Dictionary<string, int> weights) GetTreeAndWeights(string input)
         {
             var tree = new Dictionary<string, List<string>>();
             var weights = new Dictionary<string, int>();
 
             foreach (var line in input.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None))
             {
-                var item = line.Substring(0, line.IndexOf(" "));
+                var item = line[..line.IndexOf(" ")];
 
                 if (line.Contains("->"))
                 {
-                    var children = line.Substring(line.IndexOf("->") + 3).Split(',').Select(x => x.Trim());
+                    var children = line[(line.IndexOf("->") + 3)..].Split(',').Select(x => x.Trim());
 
                     tree.Add(item, children.ToList());
                 }
 
-                if (line.Contains("(") && line.Contains(")"))
+                if (line.Contains('(') && line.Contains(')'))
                 {
                     var openChar = line.IndexOf("(") + 1;
                     var closeChar = line.IndexOf(")");

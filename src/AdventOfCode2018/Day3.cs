@@ -24,7 +24,7 @@ namespace AdventOfCode2018
                 var indexOfColon = line.IndexOf(":");
 
                 var coords = line.Substring(indexOfAt + 1, indexOfColon - indexOfAt - 1).Trim().Split(',');
-                var size = line.Substring(indexOfColon + 1).Trim().Split('x');
+                var size = line[(indexOfColon + 1)..].Trim().Split('x');
 
                 var posX = int.Parse(coords[0]);
                 var posY = int.Parse(coords[1]);

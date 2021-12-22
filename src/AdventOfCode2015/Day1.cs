@@ -17,7 +17,7 @@ namespace AdventOfCode2015
         [TestCase(null, 138)]
         public void Part1(string input, int? expected)
         {
-            input = input ?? realData;
+            input ??= realData;
             var result = 0;
 
             foreach (var character in input)
@@ -44,7 +44,7 @@ namespace AdventOfCode2015
         [TestCase(null, 1771)]
         public void Part2(string input, int? expected)
         {
-            input = input ?? realData;
+            input ??= realData;
             var result = 1;
             var position = 0;
 

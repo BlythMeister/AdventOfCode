@@ -36,7 +36,7 @@ namespace AdventOfCode2021
             Console.WriteLine(result);
         }
 
-        private int Execute(string[] inputs, bool includeDiagonal)
+        private static int Execute(string[] inputs, bool includeDiagonal)
         {
             var paths = inputs.Select(x =>
             {

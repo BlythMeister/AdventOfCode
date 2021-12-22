@@ -39,7 +39,7 @@ namespace AdventOfCode2020
             Console.WriteLine(result);
         }
 
-        private long Execute(string[] inputs, List<(int x, int y)> movements)
+        private static long Execute(string[] inputs, List<(int x, int y)> movements)
         {
             var map = new List<List<char>>();
 

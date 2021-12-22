@@ -39,7 +39,7 @@ namespace AdventOfCode2021
             Console.WriteLine(result);
         }
 
-        private int ExecutePart1(string[] inputs)
+        private static int ExecutePart1(string[] inputs)
         {
             var numbers = inputs[0].Split(',').Select(int.Parse);
 
@@ -70,7 +70,7 @@ namespace AdventOfCode2021
             return 0;
         }
 
-        private int ExecutePart2(string[] inputs)
+        private static int ExecutePart2(string[] inputs)
         {
             var numbers = inputs[0].Split(',').Select(int.Parse);
 

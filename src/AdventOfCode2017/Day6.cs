@@ -14,7 +14,7 @@ namespace AdventOfCode2017
         [TestCase(null, 7864)]
         public void Part1(string input, int? expected)
         {
-            input = input ?? realData;
+            input ??= realData;
             var result = 0;
             var seenSeqs = new HashSet<string> { input };
             while (true)
@@ -51,7 +51,7 @@ namespace AdventOfCode2017
         [TestCase(null, 1695)]
         public void Part2(string input, int? expected)
         {
-            input = input ?? realData;
+            input ??= realData;
             var result = 0;
             var seenSeqs = new HashSet<string> { input };
             while (true)

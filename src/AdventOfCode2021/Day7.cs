@@ -36,7 +36,7 @@ namespace AdventOfCode2021
             Console.WriteLine(result);
         }
 
-        private long Execute(string[] inputs, bool incrementingCost)
+        private static long Execute(string[] inputs, bool incrementingCost)
         {
             var positions = inputs.Select(int.Parse).ToArray();
             var fuelCost = long.MaxValue;

@@ -28,38 +28,38 @@ namespace AdventOfCode2021
         public void Part2(string inputFile)
         {
             var lines = File.ReadAllLines(Path.Combine(TestContext.CurrentContext.TestDirectory, "Data", $"{inputFile}.dat"));
-            var result = Execute(lines, -1, true);
+            Execute(lines, -1, true);
 
             Console.WriteLine("^^ Printed Text Is The Answer ^^");
         }
 
-        private long Execute(string[] inputs, int noOfFolds, bool printOutput)
+        private static long Execute(string[] inputs, int noOfFolds, bool printOutput)
         {
             var (coordinates, folds) = Parse(inputs);
             var (map, maxX, maxY) = GetEmptyMap(coordinates);
 
-            foreach (var coordinate in coordinates)
+            foreach (var (x, y) in coordinates)
             {
-                map[coordinate.x, coordinate.y] = '#';
+                map[x, y] = '#';
             }
 
             var foldsDone = 0;
-            foreach (var fold in folds)
+            foreach (var (axis, location) in folds)
             {
                 if (noOfFolds > 0 && foldsDone >= noOfFolds)
                 {
                     break;
                 }
 
-                if (fold.axis.Equals("X", StringComparison.InvariantCultureIgnoreCase))
+                if (axis.Equals("X", StringComparison.InvariantCultureIgnoreCase))
                 {
-                    for (var x = fold.location; x < maxX; x++)
+                    for (var x = location; x < maxX; x++)
                     {
                         for (var y = 0; y < maxY; y++)
                         {
                             if (map[x, y] == '#')
                             {
-                                map[fold.location + fold.location - x, y] = map[x, y];
+                                map[location + location - x, y] = map[x, y];
                             }
                             map[x, y] = 'x';
                         }
@@ -69,11 +69,11 @@ namespace AdventOfCode2021
                 {
                     for (var x = 0; x < maxX; x++)
                     {
-                        for (var y = fold.location; y < maxY; y++)
+                        for (var y = location; y < maxY; y++)
                         {
                             if (map[x, y] == '#')
                             {
-                                map[x, fold.location + fold.location - y] = map[x, y];
+                                map[x, location + location - y] = map[x, y];
                             }
                             map[x, y] = 'x';
                         }
@@ -103,7 +103,7 @@ namespace AdventOfCode2021
             return marks;
         }
 
-        private void PrintMap(char[,] map, int maxX, int maxY)
+        private static void PrintMap(char[,] map, int maxX, int maxY)
         {
             for (var y = 0; y < maxY; y++)
             {
@@ -130,7 +130,7 @@ namespace AdventOfCode2021
             }
         }
 
-        private (char[,] map, int maxX, int maxY) GetEmptyMap(List<(int x, int y)> coordinates)
+        private static (char[,] map, int maxX, int maxY) GetEmptyMap(List<(int x, int y)> coordinates)
         {
             var maxX = coordinates.Max(x => x.x) + 1;
             var maxY = coordinates.Max(x => x.y) + 1;
@@ -147,7 +147,7 @@ namespace AdventOfCode2021
             return (map, maxX, maxY);
         }
 
-        private (List<(int x, int y)> coordinates, List<(string axis, int location)> folds) Parse(string[] inputs)
+        private static (List<(int x, int y)> coordinates, List<(string axis, int location)> folds) Parse(string[] inputs)
         {
             var coordinates = new List<(int x, int y)>();
             var folds = new List<(string axis, int location)>();
@@ -158,7 +158,7 @@ namespace AdventOfCode2021
                 {
                     if (input.StartsWith("fold along"))
                     {
-                        var values = input.Substring(11).Trim().Split("=").ToList();
+                        var values = input[11..].Trim().Split("=").ToList();
                         folds.Add((values[0], int.Parse(values[1])));
                     }
                     else

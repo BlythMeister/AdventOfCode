@@ -16,7 +16,7 @@ namespace AdventOfCode2015
         [TestCase(null, 1606483)]
         public void Part1(string input, int? expected)
         {
-            input = input ?? realData;
+            input ??= realData;
             var result = 0;
 
             foreach (var line in input.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None))
@@ -49,7 +49,7 @@ namespace AdventOfCode2015
         [TestCase(null, 3842356)]
         public void Part2(string input, int? expected)
         {
-            input = input ?? realData;
+            input ??= realData;
             var result = 0;
 
             foreach (var line in input.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None))

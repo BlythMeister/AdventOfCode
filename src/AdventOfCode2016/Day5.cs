@@ -15,7 +15,7 @@ namespace AdventOfCode2016
         [TestCase(null, "4543c154", Explicit = true)]
         public void Part1(string input, string expected)
         {
-            input = input ?? realData;
+            input ??= realData;
             var result = "";
 
             var md5 = MD5.Create();
@@ -44,7 +44,7 @@ namespace AdventOfCode2016
         [TestCase(null, "1050cbbd", Explicit = true)]
         public void Part2(string input, string expected)
         {
-            input = input ?? realData;
+            input ??= realData;
             var password = new string[8];
             var md5 = MD5.Create();
             for (int i = 0; i <= int.MaxValue; i++)
@@ -55,9 +55,8 @@ namespace AdventOfCode2016
                 {
                     var position = hexString[5];
                     var character = hexString[6];
-                    int positionNumber;
 
-                    if (int.TryParse(position.ToString(), out positionNumber) && positionNumber < password.Length)
+                    if (int.TryParse(position.ToString(), out var positionNumber) && positionNumber < password.Length)
                     {
                         if (string.IsNullOrWhiteSpace(password[positionNumber]))
                         {

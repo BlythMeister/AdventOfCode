@@ -6,4 +6,4 @@ New-Item -Path "$PSScriptRoot\..\AdventOfCode$Year\Data\Day$Day-Sample.dat" -Ite
 Copy-Item -Path "$PSScriptRoot\Dayx.cs" -Destination "$PSScriptRoot\..\AdventOfCode$Year\Day$Day.cs"
 
 
-((Get-Content -path "$PSScriptRoot\..\AdventOfCode$Year\Day$Day.cs" -Raw) -replace "Dayx","Day$Day") | Set-Content -Path "$PSScriptRoot\..\AdventOfCode$Year\Day$Day.cs"
+((Get-Content -path "$PSScriptRoot\..\AdventOfCode$Year\Day$Day.cs" -Raw) -replace "Dayx","Day$Day" -replace "AdventOfCodex","AdventOfCode$Year") | Set-Content -Path "$PSScriptRoot\..\AdventOfCode$Year\Day$Day.cs"

@@ -17,7 +17,7 @@ namespace AdventOfCode2016
         [TestCase(null, 353)]
         public void Part1(string input, int? expected)
         {
-            input = input ?? realData;
+            input ??= realData;
 
             var position = new Tuple<int, int>(0, 0);
             var movements = input.Split(',').Select(i => i.Trim()).ToList();
@@ -26,8 +26,8 @@ namespace AdventOfCode2016
 
             foreach (var movement in movements)
             {
-                var direction = movement.Substring(0, 1);
-                var amount = int.Parse(movement.Substring(1, movement.Length - 1));
+                var direction = movement[..1];
+                var amount = int.Parse(movement[1..]);
 
                 if (direction == "R")
                 {
@@ -70,7 +70,7 @@ namespace AdventOfCode2016
         [TestCase(null, 152)]
         public void Part2(string input, int? expected)
         {
-            input = input ?? realData;
+            input ??= realData;
             var result = 0;
 
             var position = new Tuple<int, int>(0, 0);
@@ -84,8 +84,8 @@ namespace AdventOfCode2016
             {
                 if (result > 0) break;
 
-                var direction = movement.Substring(0, 1);
-                var amount = int.Parse(movement.Substring(1, movement.Length - 1));
+                var direction = movement[..1];
+                var amount = int.Parse(movement[1..]);
 
                 if (direction == "R")
                 {

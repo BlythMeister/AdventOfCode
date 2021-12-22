@@ -16,7 +16,7 @@ namespace AdventOfCode2017
         [TestCase(null, 1089)]
         public void Part1(string input, int? expected)
         {
-            input = input ?? realData;
+            input ??= realData;
             var result = Execute(input, 1);
 
             if (expected != null)
@@ -34,7 +34,7 @@ namespace AdventOfCode2017
         [TestCase(null, 1156)]
         public void Part2(string input, int? expected)
         {
-            input = input ?? realData;
+            input ??= realData;
             var result = Execute(input, input.Length / 2);
 
             if (expected != null)
@@ -44,7 +44,7 @@ namespace AdventOfCode2017
             Console.WriteLine(result);
         }
 
-        private int Execute(string input, int stepsAhead)
+        private static int Execute(string input, int stepsAhead)
         {
             var result = 0;
 
@@ -65,7 +65,7 @@ namespace AdventOfCode2017
 
                 if (part == comparePart)
                 {
-                    result = result + part;
+                    result += part;
                 }
             }
 

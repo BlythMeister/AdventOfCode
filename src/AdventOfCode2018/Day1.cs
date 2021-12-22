@@ -1,7 +1,7 @@
-﻿using System;
+﻿using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using System.IO;
-using NUnit.Framework;
 
 namespace AdventOfCode2018
 {
@@ -43,17 +43,17 @@ namespace AdventOfCode2018
             Console.WriteLine(result);
         }
 
-        private int Execute(string[] input, bool returnMatch)
+        private static int Execute(string[] input, bool returnMatch)
         {
             var result = 0;
-            var seenNumbers = new List<int> {0};
+            var seenNumbers = new List<int> { 0 };
 
             while (true)
             {
                 foreach (var s in input)
                 {
                     var num = int.Parse(s);
-                    result = result + num;
+                    result += num;
 
                     if (returnMatch && seenNumbers.Contains(result))
                     {

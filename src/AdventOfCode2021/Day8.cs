@@ -37,7 +37,7 @@ namespace AdventOfCode2021
             Console.WriteLine(result);
         }
 
-        private int Execute1(string[] inputs)
+        private static int Execute1(string[] inputs)
         {
             var numbers = new List<HashSet<char>>();
             foreach (var input in inputs)
@@ -53,7 +53,7 @@ namespace AdventOfCode2021
                        numbers.Count(x => x.Count == 7);
         }
 
-        private int Execute2(string[] inputs)
+        private static int Execute2(string[] inputs)
         {
             var sum = 0;
             foreach (var input in inputs)

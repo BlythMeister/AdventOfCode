@@ -42,7 +42,7 @@ namespace AdventOfCode2019
             Console.WriteLine(result);
         }
 
-        private int Execute(string[] inputs, bool fuelNeedsFuel)
+        private static int Execute(string[] inputs, bool fuelNeedsFuel)
         {
             var result = 0;
             foreach (var input in inputs)
