@@ -23,9 +23,9 @@ namespace AdventOfCode2021
             Console.WriteLine(result);
         }
 
-        [TestCase("Day10-Sample", 288957)]
+        [TestCase("Day10-Sample", (uint)288957)]
         [TestCase("Day10", 3260812321)]
-        public void Part2(string inputFile, long? expected)
+        public void Part2(string inputFile, uint? expected)
         {
             var lines = File.ReadAllLines(Path.Combine(TestContext.CurrentContext.TestDirectory, "Data", $"{inputFile}.dat"));
             var result = Execute(lines, true);
